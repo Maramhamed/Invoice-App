@@ -1,0 +1,103 @@
+/* Reset margins and padding for HTML and body */
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+/* Add padding to the content to account for the fixed header and bottom navigation */
+.content {
+  margin-top: 7%; /* Adjust this value as needed */
+  padding-bottom: 7%; /* Adjust this value as needed */
+  background-color: lightgray;
+}
+
+/* Top Navigation (Header) */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+/* Bottom Navigation */
+.navbar-container-bottom {
+  width: 7%;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #3586ff;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  z-index: 999;
+}
+
+/* Common styles for the side navigation (left) */
+.navbar-container {
+  width: 7%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #3586ff;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  z-index: 999;
+}
+
+/* List styles */
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 40%;
+}
+
+.nav-item {
+  padding: 10px 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-link svg path {
+  fill: white;
+}
+
+
+.train {
+  position: absolute;
+  left: -200%; /* Start the train off the screen to the left */
+  transition: left 0.4s ease;
+}
+
+.move-left {
+  left: -30%; /* Move the train off the screen to the left */
+  transition: left 0.4s ease;
+}
+
+.move-right {
+  left: 30%; /* Move the train to 30% position from the left */
+  transition: left 0.4s ease;
+}
+
+.custom-table {
+  background-color: #f5f5f5;
+}
+
+.table-container {
+  max-height: 80vh;
+  overflow: hidden;
+}

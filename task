@@ -1,0 +1,16 @@
+1 - Sign up _ create new account
+2 - validation 
+a - the submit button inside the sign up form should be disabled when the input fields are empty or 
+    password and confirm password are not equal
+
+3 - remove "already have an account" when request is sending
+4 - show loading state and disable the submit button during the request
+
+5 - navigate the user into main page after logged in
+
+
+                                20th july, 2023
+
+1 - create multiple items (inside invoice form)
+2 - read the values of all inputs
+3 - integrate between the backend and frontend to create invoice
