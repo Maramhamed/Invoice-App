@@ -29,7 +29,7 @@ async function createCompany(company_name, location, sector, description) {
       body: JSON.stringify(companyInformation),
     });
 
-    console.log('After fetch request');
+   console.log('After fetch request');
 
 
     if (res.status !== 201) {

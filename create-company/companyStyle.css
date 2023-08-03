@@ -1,0 +1,14 @@
+.btn-change-color {
+    background-color: #fff;
+    color: #007bff;
+  }
+
+  .btn-change-color.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  /* Additional CSS to prevent focus style outline */
+  .btn-change-color:focus {
+    box-shadow: none;
+  }
