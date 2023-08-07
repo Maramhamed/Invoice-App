@@ -30,7 +30,7 @@ async function loginUser(email, password) {
     //reset button text content
     submitBtn.textContent = "login";
     submitBtn.disabled = false;
-    window.location.href = "/Main-page/Dashboard.html";
+    window.location.href = "/main-page/dashboard.html";
 
   } catch (error) {
     alert(error.message);
