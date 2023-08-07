@@ -36,7 +36,7 @@ async function signUpUser(name, email, password, confirmedPassword) {
     submitBtn.disabled = false;
 
     // Navigate to the main page
-    window.location.href = "Homepage.html";
+    window.location.href = "/Main-page/Dashboard.html";
   } catch (error) {
     alert(error.message);
     submitBtn.textContent = "Login";

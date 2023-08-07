@@ -12,3 +12,408 @@
   .btn-change-color:focus {
     box-shadow: none;
   }
+
+
+  #show{
+    background-color: #D8DFEB;
+    color: #0069D9;
+    border-color: #D8DFEB;
+  }
+
+/* Center the parent container */
+
+
+#companyList {
+  display: block;
+  margin: 0 auto;
+  max-width: 120%;
+  width: 50%;
+  /* Adjust the top property to move the element up or down */
+  position: relative;
+  top: 10px; /* Move it 50 pixels down from its normal position */
+}
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table th, .table td {
+  padding: auto;
+  text-align: left;
+}
+        /* Responsive styles using media queries */
+        @media (max-width: 768px) {
+          #companyList {
+              width: 90%;
+              top: 0; /* Remove the top offset */
+          }
+      }
+
+      @media (max-width: 576px) {
+          #companyList {
+              width: 100%;
+              top: 0; /* Remove the top offset */
+          }
+      }
+
+/* all code for nav */ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.side-navbar {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  margin-left: -300px;
+  background-color: #3586FF;
+  transition: 0.5s;
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+  background-color: #4f98ff;
+}
+
+.my-container {
+  transition: 0.4s;
+}
+
+.active-nav {
+  margin-left: 0;
+}
+
+/* for main section */
+.active-cont {
+  margin-left: 250px;
+}
+
+#menu-btn {
+  background-color: #3586FF;
+  color: #fff;
+  margin-left: -62px;
+}
+
+.my-container input {
+  border-radius: 2rem;
+  padding: 2px 20px;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: auto;
+  padding-bottom: 50px;
+}
+.nav-link {
+padding-top: 35px;
+display: flex;
+align-items: center;
+color: white; /* Change the text color to white */
+}
+
+/* Change the color of the SVG icon */
+.nav-link svg {
+fill: black; /* Change the fill color of the SVG icon to black */
+}
+.invoice-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: auto;
+  padding-bottom: 50px;
+  font-weight: bold;
+}
+
+/* Change the color of the SVG icon */
+.nav-link svg {
+  fill: white; /* Replace "blue" with the desired color value */
+}
+
+
+.dropdown {
+  width: 300px;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgb(204, 204, 204);
+  transition: all .5s ease;
+  position: relative;
+  font-size: 14px;
+  color: #474747;
+  height: 100%;
+  text-align: left
+}
+.dropdown .select {
+    cursor: pointer;
+    display: block;
+    padding: 10px
+}
+.dropdown .select > i {
+    font-size: 13px;
+    color: #888;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    float: right;
+    line-height: 20px
+}
+.dropdown:hover {
+    box-shadow: 0 0 4px rgb(204, 204, 204)
+}
+.dropdown:active {
+    background-color: #f8f8f8
+}
+.dropdown.active:hover,
+.dropdown.active {
+    box-shadow: 0 0 4px rgb(204, 204, 204);
+    border-radius: 2px 2px 0 0;
+    background-color: #f8f8f8
+}
+.dropdown.active .select > i {
+    transform: rotate(-90deg)
+}
+.dropdown .dropdown-menu {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    margin-top: 1px;
+    box-shadow: 0 1px 2px rgb(204, 204, 204);
+    border-radius: 0 1px 2px 2px;
+    overflow: hidden;
+    display: none;
+    max-height: 144px;
+    overflow-y: auto;
+    z-index: 9
+}
+.dropdown .dropdown-menu li {
+    padding: 10px;
+    transition: all .2s ease-in-out;
+    cursor: pointer
+} 
+.dropdown .dropdown-menu {
+    padding: 0;
+    list-style: none
+}
+.dropdown .dropdown-menu li:hover {
+    background-color: #f2f2f2
+}
+.dropdown .dropdown-menu li:active {
+    background-color: #e2e2e2
+}
+
+#filter{
+  width: 90px;
+  height: 50px;
+}
+
+#button-invoice{
+  height: 55px;
+  border-radius: 25px;
+}
+
+
+/* All this style for the form */ 
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two:700|Poppins&display=swap');
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+text-align: center;
+background: white;
+font-family: 'Poppins', sans-serif;
+width: 100%; /* Set body width to 100% to make it responsive */
+}
+
+::selection {
+color: white;
+background: #3586ff;
+}
+
+.center {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+
+
+/* Adjust the modal-box for responsiveness using media queries */
+.modal-box {
+top: 40%;
+opacity: 0;
+visibility: hidden;
+background: white;
+width: 90%; /* Use percentage-based width */
+max-width: 500px; /* Add max-width to limit the container's width */
+padding: 30px;
+border-radius: 5px;
+border: 1px solid #3586ff;
+box-shadow: 5px 5px 30px rgba(0, 0, 0, .2);
+}
+
+/* Media Query for smaller screen sizes */
+@media screen and (max-width: 768px) {
+.modal-box {
+  width: 95%; /* Reduce width for smaller screens */
+}
+}
+
+
+.modal-box.show-modal{
+top: 50%;
+opacity: 1;
+visibility: visible;
+transition: .4s;
+}
+.modal-box .fa-times{
+position: absolute;
+top: 0;
+right: 0;
+background: #3586ff;
+height: 45px;
+width: 50px;
+line-height: 40px;
+color: white;
+font-size: 18px;
+border-radius: 0 5px 0 50px;
+padding-left: 13px;
+cursor: pointer;
+}
+.fa-times:hover{
+font-size: 22px;
+}
+.modal-box .icon1{
+font-size: 60px;
+background: #3586ff;
+height: 120px;
+width: 120px;
+color: white;
+border-radius: 50%;
+line-height: 120px;
+text-align: center;
+margin-bottom: 10px;
+}
+.modal-box header{
+font-size: 31px;
+font-family: 'Lobster Two';
+margin-bottom: 10px;
+}
+.modal-box p{
+/* margin-bottom: 10px; */
+line-height: 20px;
+color: grey;
+}
+form input, form button{
+height: 50px;
+width: 95%;
+border-radius: 3px;
+}
+form .icon2{
+position: absolute;
+height: 50px;
+width: 50px;
+margin-top: 15px;
+background: #3586ff;
+color: white;
+line-height: 50px;
+font-size: 24px;
+border-radius: 5px 0 0 5px;
+}
+form input{
+margin-top: 15px;
+padding: 0 65px;
+font-size: 18px;
+outline: none;
+border: 2px solid #3586ff;
+caret-color: #3586ff;
+}
+input::placeholder{
+color: #8c8c8c;
+}
+form input:focus{
+box-shadow: 0 0 15px #3586ff,
+            0 0 25px #b4f0fd,
+            0 0 35px #ffffff;
+}
+form button{
+margin-top: 15px;
+background: #3586ff;
+color: white;
+font-size: 25px;
+border: 1px solid #3586ff;
+letter-spacing: 1px;
+cursor: pointer;
+outline: none;
+transition: .3s;
+}
+form button:hover{
+background: #3586ff;
+border: 1px solid #3586ff;
+letter-spacing: 2px;
+}
+.modal-box .icons{
+margin-top: 25px;
+}
+.icons i{
+font-size: 22px;
+margin: 0 7px;
+color: #48DBFB;
+cursor: pointer;
+}
+.icons i:hover{
+transform: scale(1.1);
+color: #3586ff;
+}
+
+/* ------------- */
+
+
+
+.custom-table {
+background-color: #f5f5f5;
+}
+
+.table-container {
+max-height: 80vh;
+overflow: hidden;
+}
+
+
+/* Heart Icon
+--------------------------------------------- */
+
+.footer-heart{text-align:center;font-family: open sans, sans-serif;font-weight: bold; color: white;font-size: 15px;}
+
+.footer-heart a{border-bottom: 1px solid white;color: white;padding-bottom: .25em; text-decoration: none;}
+
+.footer-heart a:hover{color:black; background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23453886' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+background-position: bottom;
+background-repeat: repeat-x;
+background-size: 20%;
+border-bottom: 0;
+padding-bottom: .3em;
+text-decoration: none;}
+
+.emoji{vertical-align: middle;}
+
+
+
+
+/* to move form up */
+#create_company {
+  margin-top: -100px; /* Adjust this value as needed to move the container up */
+}
+

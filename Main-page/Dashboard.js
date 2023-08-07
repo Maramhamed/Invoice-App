@@ -1,133 +1,6 @@
 window.api = "https://invoice-app-lqzf.onrender.com/api/v1/";
 const token = localStorage.getItem("Token");
-
-// This function to make form movement come from left side and then back
-function moveElements() {
-  const button = document.getElementById("showFormButton");
-  const formMovement = document.getElementById("formMovement");
-
-  if (formMovement.classList.contains("move-left")) {
-    // Move elements to the right before animating further
-    formMovement.classList.remove("move-left");
-    formMovement.style.left = "100px";
-    button.disabled = true; // Disable the button after clicking once
-    formMovement.style.pointerEvents = "none"; // Disable pointer events on the div
-  } else {
-    // Move elements to the left before animating further
-    formMovement.classList.add("move-left");
-    formMovement.style.left = "-200%";
-    formMovement.style.pointerEvents = "auto"; // Enable pointer events on the div
-  }
-}
-
-// This function for cancel button
-const cancelButton = document.getElementById("cancelButton");
-const formMovement = document.getElementById("formMovement");
-
-cancelButton.addEventListener("click", () => {
-  formMovement.style.left = "-100%"; // Set the left position to hide the form
-});
-
-/*****************************************************************************************************/
-
-// This function use to repeat item list when I click on button --Add New Item--
-
-// JavaScript
-document.getElementById("repeatButton").addEventListener("click", addNewInput);
-
-function addNewInput() {
-  const inputContainer = document.getElementById("inputContainer");
-
-  // Create a new row for each item
-  const itemRow = document.createElement("div");
-  itemRow.classList.add("row", "item-container");
-
-  // Create the input elements for each item
-  const itemNameCol = createItemColumn("Item Name", "text", "col-md-3");
-  itemRow.appendChild(itemNameCol);
-
-  const quantityCol = createItemColumn("Quantity", "number", "col-md-2");
-  itemRow.appendChild(quantityCol);
-
-  const priceCol = createItemColumn("Price", "number", "col-md-2");
-  itemRow.appendChild(priceCol);
-
-  const taxesCol = createItemColumn("Taxes", "number", "col-md-2");
-  itemRow.appendChild(taxesCol);
-
-  const totalCol = createItemColumn("Total", "number", "col-md-2");
-  itemRow.appendChild(totalCol);
-
-  const deleteCol = createDeleteColumn(itemRow); // Pass the current row to the function
-  itemRow.appendChild(deleteCol);
-
-  // Append the new item row to the container
-  inputContainer.appendChild(itemRow);
-}
-
-function createItemColumn(labelText, inputType, columnClass) {
-  const colDiv = document.createElement("div");
-  colDiv.classList.add(columnClass);
-
-  const label = document.createElement("label");
-  label.innerText = labelText + ":";
-
-  const input = document.createElement("input");
-  input.type = inputType;
-  input.classList.add("form-control");
-  input.autocomplete = "off";
-
-  colDiv.appendChild(label);
-  colDiv.appendChild(input);
-
-  return colDiv;
-}
-
-function createDeleteColumn(rowToDelete) {
-  const colDiv = document.createElement("div");
-  colDiv.classList.add(
-    "col-md-1",
-    "mb-2",
-    "d-flex",
-    "flex-column",
-    "align-items-center",
-    "justify-content-center"
-  );
-
-  const deleteLabel = document.createElement("label");
-  deleteLabel.innerText = "Delete:";
-
-  const deleteLink = document.createElement("a");
-  deleteLink.href = "#";
-
-  const deleteIcon = document.createElement("i");
-  deleteIcon.classList.add("fa", "fa-times");
-  deleteIcon.style.fontSize = "48px";
-  deleteIcon.style.color = "red";
-
-  // Add event listener to delete icon
-  deleteIcon.addEventListener("click", function () {
-    if (rowToDelete !== inputContainer.firstElementChild) {
-      // Check if the row is not the original row before deleting
-      rowToDelete.remove();
-    }
-  });
-
-  deleteLink.appendChild(deleteIcon);
-  colDiv.appendChild(deleteLabel);
-  colDiv.appendChild(deleteLink);
-
-  return colDiv;
-}
-
-// document.getElementById("inputContainer")
-//   .addEventListener("input", function (event) {
-//     const target = event.target;
-//     if (target.tagName === "INPUT") {
-//       const labelText = target.previousElementSibling.innerText;
-//       console.log(labelText + ": " + target.value);
-//     }
-//   });
+let submitBtn = document.getElementById("createInvoice");
 
 // -------------------------------------------------------------------------------------
 
@@ -178,26 +51,27 @@ const getAllCompanies = async () => {
 };
 
 // Call the function to fetch and populate the dropdown
-getAllCompanies();
-
+document.addEventListener("DOMContentLoaded", () => {
+  getAllCompanies();
+});
 // ---------------------------------------------------------------------------------
 
 /*
 to send POST request we need data to provide it inside the body request 
 */
-const clientName = document.getElementById("inputClientName"),
-  clientPhone = document.getElementById("inputPhone"),
-  clientCity = document.getElementById("inputAddress");
 
-/*
-
-
-*/
-
+let companyID;
 async function createInvoice(bill_from, clientName, clientPhone, clientCity, invoiceItemsValues) {
+  companyID = document.getElementById("typeBill").value;
+
+  // Get the client name, phone, and city from the HTML form
+  clientName = document.getElementById("clientName").value;
+  clientPhone = document.getElementById("clientPhone").value;
+  clientCity = document.getElementById("clientCity").value;
+
   // Create a new invoice object
   const invoice = {
-    bill_from: bill_from,
+    bill_from: companyID,
     client_name: clientName,
     client_phone: clientPhone,
     client_city: clientCity,
@@ -222,6 +96,7 @@ async function createInvoice(bill_from, clientName, clientPhone, clientCity, inv
 
       // The invoice was created successfully
       alert('Invoice created successfully!');
+      submitBtn.disabled = false;
     } else {
       // The invoice was not created successfully
       alert('Failed to create invoice.');
@@ -230,11 +105,9 @@ async function createInvoice(bill_from, clientName, clientPhone, clientCity, inv
 
   catch (error) {
     // An error occurred while creating the invoice
-    console.error(error);
+    console.error(error.message);
   };
 }
-
-
 
 
 
@@ -258,12 +131,9 @@ const companyMenu = document.getElementById("typeBill");
 
 let bill_from;
 const invoiceItemsValues = [];
-
 companyMenu.onchange = (e) => {
   bill_from = e.target.value;
 };
-
-
 submitInvoice.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -283,21 +153,23 @@ submitInvoice.addEventListener("submit", (event) => {
 
     invoiceItemsValues.push(invoiceItem);
   }
-
+    // Disable the submit button before calling the createInvoice function
+    submitBtn.textContent = "loading....";
+    submitBtn.disabled = true;
+  
   // Call the createInvoice function with the necessary data
-  createInvoice(
+   createInvoice(
     bill_from,
     clientName.value,
     clientPhone.value,
     clientCity.value,
     invoiceItemsValues
   );
+  submitBtn.textContent = "Create";
+  submitBtn.disabled = false;
 });
 
-const tableBody = document.querySelector("#invoice_view tbody")
-
-
-
+const tableBody = document.querySelector("#invoice_view tbody");
 async function getAllInvoices(page = 1) {
   tableBody.innerHTML = ""
   try {
@@ -341,6 +213,9 @@ function renderInvoice(invoices) {
     td_name.textContent = invoice.client_name;
     td_status.textContent = invoice.status;
 
+
+
+
     tr.appendChild(td_created_at);
     tr.appendChild(td_name);
     tr.appendChild(td_status);
@@ -375,4 +250,39 @@ function paginationEl(numPage ) {
   }
 }
 
+
+
+
+//"127.0.0.1:3000/api/v1/employees?location=4934308402203235"
+
+// JavaScript
+document.getElementById("repeatButton").addEventListener("click", addNewInput);
+
+
+function addNewInput() {
+  const inputContainer = document.getElementById("inputContainer");
+  const templateRow = document.querySelector(".item-container");
+
+  // Clone the template row
+  const newItemRow = templateRow.cloneNode(true);
+  newItemRow.classList.remove("item-container");
+  newItemRow.style.display = "flex"; // Show the cloned row
+
+  // Reset the input fields in the cloned row
+  newItemRow.querySelector("#itemName").value = "";
+  newItemRow.querySelector("#quantity").value = "";
+  newItemRow.querySelector("#price").value = "";
+
+  // Add event listener to the delete link
+  const deleteLink = newItemRow.querySelector("a");
+  deleteLink.addEventListener("click", function () {
+    // Check if the row is not the original row before deleting
+    if (newItemRow !== inputContainer.firstElementChild) {
+      newItemRow.remove();
+    }
+  });
+
+  // Append the new item row to the container
+  inputContainer.appendChild(newItemRow);
+}
 
