@@ -6,5 +6,5 @@
 
 ### Languages: 
 - HTML5 & CSS3 (bootstrap) and Pure javascript integrated with API
-- 
+  
 You can view the site here: https://velvety-sorbet-79c5cc.netlify.app/
