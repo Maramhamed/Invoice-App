@@ -1,7 +1,7 @@
 # Invoice-App📃
 
 ### The app's idea: 
--To manage and create invoices for clients or customers.<be>
+-To manage and create invoices for clients or customers.<br>
 -The dashboard provides a user interface to interact with various features related to invoices and clients
 
 ### Languages: 
