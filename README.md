@@ -1,7 +1,10 @@
 # Invoice-App📃
 
 ### The app's idea: 
--To manage and create invoices for clients or customers.<br>
+- To manage and create invoices for clients or customers.<be>
+
+### The Features: 
+-  It provides a user-friendly interface for performing these tasks and could potentially be expanded with additional features such as editing and deleting invoices, generating reports, and more. 
 
 ### The Functionality: 
 - The dashboard provides a user interface to interact with various features related to invoices and clients.
@@ -13,4 +16,5 @@
 ### Languages: 
 - HTML5 & CSS3 (using Bootstrap) and Pure JavaScript integrated with API
   
-You can view the site here: https://velvety-sorbet-79c5cc.netlify.app/
+### View The Site: 
+- https://velvety-sorbet-79c5cc.netlify.app/
