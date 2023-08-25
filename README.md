@@ -7,7 +7,7 @@
 -  It provides a user-friendly interface for performing these tasks and could potentially be expanded with additional features such as editing and deleting invoices, generating reports, and more. 
 
 ### The Functionality: 
-- User authentication and the users are required to provide their email address and password or regiester to gain access to the application's protected content or features.
+- User authentication and the users are required to provide their email address and password or register to gain access to the application's protected content or features.
 - The dashboard provides a user interface to interact with various features related to invoices and clients.
 - The navigation sidebar on the left provides links to different sections of the app, including "Home," "Profile," "Companies," and a "Logout" option.
 - Users have the option to filter invoices based on their status, such as "All," "Pending," or "Paid." This helps users quickly find the invoices they're looking for.
@@ -19,3 +19,4 @@
   
 ### View The Site: 
 - https://invoice-creator-maram.netlify.app/
+![Screenshot (114)](https://github.com/Maramhamed/Invoice-App/assets/78036366/1cddde3c-6848-4f47-a308-7e9ac0938637)
